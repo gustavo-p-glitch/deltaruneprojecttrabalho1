@@ -32,4 +32,3 @@ class Alma(Entidade):
             return False
 
 
-
