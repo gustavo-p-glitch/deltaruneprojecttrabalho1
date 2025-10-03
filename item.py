@@ -1,5 +1,8 @@
+from efeito import Efeito
+from tipo import Tipo
+
 class Item:
-    def __init__(self, nome: str, tipo: str, efeitos: dict):
+    def __init__(self, nome: str, tipo: Tipo, efeitos: Efeito):
         self.__nome = nome
         self.__tipo = tipo
         self.__efeitos = efeitos
@@ -17,11 +20,11 @@ class Item:
         return self.__efeitos
 
     def usarconsumivel(self, alma):
-        if self.tipo == 'consumivel':
-            if 'vida' in self.efeitos:
-                cura = self.efeitos['vida']
-                alma.vida += cura
-                print(f"O item {self.nome} foi usado! A vida da alma aumentou em {cura}.")
+        # CORREÇÃO: Usa self.tipo.nome
+        if self.tipo.nome == 'consumivel':
+            if self.efeitos.cura > 0:
+                alma.vida += self.efeitos.cura
+                print(f"O item {self.nome} foi usado! A vida da alma aumentou em {self.efeitos.cura}.")
             else:
                 print(f"O item {self.nome} não tem efeito de cura.")
         else:
