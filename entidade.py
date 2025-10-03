@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 class Entidade(ABC):
 
     def __init__(self, nome: str, magia: int, atk: int, defn: int):
@@ -53,6 +54,3 @@ class Entidade(ABC):
             danocausado = 0
         alvo.leveidano(danocausado)
         print(f"{self.__nome} ataca {alvo.nome}, causando {danocausado} de dano!")
-
-
-
